@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+.idea/.idea.table_function_approximator/riderModule.iml
+.idea/.idea.table_function_approximator/.idea/workspace.xml
+.idea/.idea.table_function_approximator/.idea/vcs.xml
+.idea/.idea.table_function_approximator/.idea/modules.xml
+.idea/.idea.table_function_approximator/.idea/contentModel.xml
