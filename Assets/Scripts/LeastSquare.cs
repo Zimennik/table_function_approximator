@@ -6,20 +6,19 @@ using UnityEngine;
 
 public class LeastSquare : LineBase
 {
-    void Start()
+    public override void DrawLine(List<Vector3> points)
     {
-       // DrawLine(Calculate());
+        Points = points;  
         
-        List<Vector3> points = new List<Vector3>();
+        List<Vector3> linePoints = new List<Vector3>();
 
         List<float> abcd = LSM_Cubic(Points);
 
         for (float i = 0; i <= 6; i += STEP)
         {
-            points.Add(new Vector3(i, GetY(i, abcd)));
+            linePoints.Add(new Vector3(i, GetY(i, abcd)));
         }
-        DrawLine(points);
-        DrawPoints();
+        base.DrawLine(linePoints);
     }
 
     private float GetY(float currentX, List<float> abcd)

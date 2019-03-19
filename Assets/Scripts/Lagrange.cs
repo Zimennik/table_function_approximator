@@ -6,27 +6,17 @@ public class Lagrange : LineBase
 {
     private const float order = 4;
 
-    // Use this for initialization
-    void Start()
+
+    public override void DrawLine(List<Vector3> points)
     {
-        List<Vector3> points = new List<Vector3>();
+        Points = points;
+        List<Vector3> linePoints = new List<Vector3>();
 
         for (float i = 0; i <= 6; i += STEP)
         {
-            points.Add(new Vector3(i, Calc(i, Points)));
+            linePoints.Add(new Vector3(i, Calc(i, Points)));
         }
-        DrawLine(points);
-        DrawPoints();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public override List<Vector3> Calculate()
-    {
-        return base.Calculate();
+        base.DrawLine(linePoints);
     }
 
     private float Calc(float currentX, List<Vector3> points)
