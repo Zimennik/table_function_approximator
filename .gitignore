@@ -32,7 +32,6 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
 *.unitypackage
 .idea/.idea.table_function_approximator/riderModule.iml
 .idea/.idea.table_function_approximator/.idea/workspace.xml

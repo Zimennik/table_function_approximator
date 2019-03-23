@@ -25,21 +25,6 @@ public class LeastSquare : LineBase
     {
         return abcd[0] * Mathf.Pow(currentX, 3) + abcd[1] * Mathf.Pow(currentX, 2) + abcd[2] * currentX + abcd[3];
     }
-
-    public override List<Vector3> Calculate()
-    {
-        List<Vector3> result = new List<Vector3>();
-
-        List<float> x = new List<float>();
-
-
-        for (float i = 0; i <= 10; i += STEP)
-        {
-            result.Add(new Vector3(i, i*i/2));
-        }
-
-        return result;
-    }
     
         private List<float> Kramer(float[,] left, float[] right)
         {

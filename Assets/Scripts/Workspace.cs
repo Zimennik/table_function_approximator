@@ -1,26 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Workspace : MonoBehaviour
 {
     public List<Point> Points = new List<Point>();
     public Point PointPrefab;
+    public Transform PointsHolder;
 
     public LeastSquare LeastSquare;
     public Lagrange Lagrange;
 
     private const int MINX = 0;
-    private const int MINY = 0;
     private const int MAXX = 5;
-    private const int MAXY = 5;
     private const int POINTS_COUNT = 5;
 
 
     public List<Vector3> GetPoints()
     {
         return Points.Select(x => x.transform.position).ToList();
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
@@ -55,16 +59,17 @@ public class Workspace : MonoBehaviour
     }
 
 
-    public void CreatePoint(Vector3 pos, int Id)
+    public void CreatePoint(Vector3 pos, int id)
     {
-        Point p = Instantiate(PointPrefab, pos, Quaternion.identity);
-        p.PointId = Id;
+        Point p = Instantiate(PointPrefab, PointsHolder);
+        p.transform.position = pos;
+        p.PointId = id;
         p.OnPointMove += OnPointMove;
 
         Points.Add(p);
     }
 
-    public void OnPointMove(int id, Vector3 pos)
+    public void OnPointMove()
     {
         RedrawLines();
     }

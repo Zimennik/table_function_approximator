@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Point : MonoBehaviour
 {
     public int PointId;
 
-    public event Action<int, Vector3> OnPointMove;
-
-
-    void OnMouseDown()
-    {
-    }
+    public event Action OnPointMove;
 
     void OnMouseDrag()
     {
@@ -23,9 +16,8 @@ public class Point : MonoBehaviour
         curPosition.z = 0;
 
         curPosition.y = Mathf.Clamp(curPosition.y, 0f, 5f);
-
         transform.position = curPosition;
 
-        if (OnPointMove != null) OnPointMove(PointId, transform.position);
+        if (OnPointMove != null) OnPointMove();
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class LineBase : MonoBehaviour
@@ -9,11 +8,6 @@ public abstract class LineBase : MonoBehaviour
 	public GameObject PointPrefab;
 	protected const float STEP = 0.05f;
 
-
-	public virtual List<Vector3> Calculate()
-	{
-		return new List<Vector3>();
-	}
 
 
 	public virtual void DrawLine(List<Vector3> points)

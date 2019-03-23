@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Lagrange : LineBase
 {
-    private const float order = 4;
+    private const float ORDER = 4;
 
 
     public override void DrawLine(List<Vector3> points)
@@ -23,7 +22,7 @@ public class Lagrange : LineBase
     {
         float result = 0;
 
-        for (int i = 0; i <= order; i++)
+        for (int i = 0; i <= ORDER; i++)
         {
             result += points[i].y * GetBasis(i, currentX, points);
         }
@@ -33,7 +32,7 @@ public class Lagrange : LineBase
     private float GetBasis(int iterration, float currentX, List<Vector3> points)
     {
         float result = 1;
-        for (int j = 0; j <= order; j++)
+        for (int j = 0; j <= ORDER; j++)
         {
             if (j == iterration) continue;
 
